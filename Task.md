@@ -50,7 +50,7 @@ The app should fetch and display posts from a public API.
 
 ## 🎨 Design Reference
 
-[Figma Design Link →](https://www.figma.com/design/xH1KctQJ1NRvH5w8aed4n8/The-Blog---Buguard-Task)
+[Figma Design Link](https://www.figma.com/design/xH1KctQJ1NRvH5w8aed4n8/The-Blog---Buguard-Task)
 
 ---
 
