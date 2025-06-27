@@ -1,9 +1,17 @@
-const Header = ({ version }: { version: "full" | "mini" }) => {
+import ThemeToggler from "./ThemeToggler";
+
+const Header = ({
+  version,
+  className,
+}: {
+  version: "full" | "mini";
+  className?: string;
+}) => {
   return (
-    <header className="my-[30px]">
-      <div className="flex justify-between">
+    <header className={`${className}`}>
+      <div className="flex justify-between items-center">
         <p className="font-bold">Name</p>
-        <p>themePicker</p>
+        <ThemeToggler />
       </div>
       {version == "full" && (
         <p className="border-t border-b mt-[30px] border-gray-500 uppercase font-bold text-[100px] w-full text-center tracking-widest">
