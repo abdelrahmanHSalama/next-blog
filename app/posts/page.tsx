@@ -29,7 +29,7 @@ export default async function PostsPage({
         <RecentPosts articles={recentPosts} className="my-8" />
         <AllPosts articles={posts} className="my-8" />
         <Pagination
-          pages={Math.ceil(total / limit)}
+          pages={Math.ceil((total - 4) / limit)}
           currentPage={page}
           className="my-8"
         />
