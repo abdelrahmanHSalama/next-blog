@@ -13,9 +13,10 @@ export const metadata: Metadata = {
 export default async function PostsPage({
   searchParams,
 }: {
-  searchParams: { page?: string };
+  searchParams: Promise<{ page?: string }>;
 }) {
-  const page = parseInt(searchParams.page || "1", 10);
+  const { page: pageParam } = await searchParams;
+  const page = parseInt(pageParam || "1");
   const limit = 6;
 
   const { posts, total } = await getAllPosts(page, limit);

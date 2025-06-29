@@ -10,12 +10,12 @@ export const metadata: Metadata = {
   description: "Blog Viewer, built using Next.js.",
 };
 
-export default async function PostsPage({
+export default async function PostPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const { id } = params;
+  const { id } = await params;
 
   const post = await getPost(id);
 

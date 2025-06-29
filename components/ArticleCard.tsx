@@ -12,8 +12,8 @@ type ArticleCardProps = {
 };
 
 const DefaultArticleCard = ({ article, image, main }: ArticleCardProps) => {
-  let articleTitleLength = main === true ? 50 : 25;
-  let articleBodyLength = 200;
+  const articleTitleLength = main === true ? 50 : 25;
+  const articleBodyLength = 200;
   return (
     <div className="w-full h-full flex flex-col gap-4">
       <Link
