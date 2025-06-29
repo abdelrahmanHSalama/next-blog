@@ -1,26 +1,14 @@
 import ArticleCard from "./ArticleCard";
-
-type Article = {
-  title: string;
-  body: string;
-};
-
-type ArticlesComponent = {
-  articles: Article[];
-  className?: string;
-};
-
-const images = [
-  "https://images.unsplash.com/photo-1664575602276-acd073f104c1",
-  "https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf",
-  "https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a",
-  "https://images.unsplash.com/photo-1434030216411-0b793f4b4173",
-];
+import { ArticlesComponent } from "@/lib/types";
+import { images } from "@/lib/constants";
 
 const RecentPosts = ({ articles, className }: ArticlesComponent) => {
   return (
     <div className={`flex flex-col gap-4 ${className}`}>
-      <div className="grid grid-rows-2 grid-cols-2 gap-4">
+      <p className="dart:text-white text-2xl font-semibold">
+        Recent Blog Posts
+      </p>
+      <div className="flex flex-col lg:grid lg:grid-rows-2 lg:grid-cols-2 gap-4">
         <div className="row-span-2 col-span-1">
           <ArticleCard
             style="default"
