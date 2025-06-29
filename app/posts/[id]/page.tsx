@@ -3,12 +3,32 @@ import Header from "@/components/Header";
 import { getPost } from "@/lib/api";
 import Image from "next/image";
 import { images } from "@/lib/constants";
-import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Next-Blog",
-  description: "Blog Viewer, built using Next.js.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const post = await getPost(id);
+
+  if (!post) {
+    return {
+      title: "Post Not Found | Next-Blog",
+      description: "This post does not exist.",
+    };
+  }
+
+  return {
+    title: `${post.title} | Next-Blog`,
+    description: `Read more about ${post.title}`,
+    openGraph: {
+      title: post.title,
+      description: `Read more about ${post.title}`,
+      url: `/posts/${id}`,
+    },
+  };
+}
 
 export default async function PostPage({
   params,
