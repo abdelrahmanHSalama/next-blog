@@ -36,7 +36,7 @@ const DefaultArticleCard = ({ article, image, main }: ArticleCardProps) => {
         <p className="text-2xl font-semibold flex justify-between items-center">
           <Link
             href={`./posts/${article.id}`}
-            className="border-b border-transparent hover:border-black transition-border duration-250 cursor-pointer"
+            className="border-b border-transparent hover:border-black transition-border duration-250 cursor-pointer dark:text-white"
           >
             {article.title.length > articleTitleLength
               ? article.title.slice(0, articleTitleLength) + "..."

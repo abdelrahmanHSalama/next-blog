@@ -1,3 +1,4 @@
+import Link from "next/link";
 import NavBar from "./NavBar";
 
 const Header = ({
@@ -10,7 +11,9 @@ const Header = ({
   return (
     <header className={`${className}`}>
       <div className="flex justify-between items-center">
-        <p className="font-bold">Name</p>
+        <Link href="/" className="font-bold text-2xl">
+          Next-Blog
+        </Link>
         <NavBar />
       </div>
       {version == "full" && (

@@ -1,16 +1,39 @@
-import { Icon } from "@iconify/react";
-import Link from "next/link";
+import AllPosts from "@/components/AllPosts";
+import Header from "@/components/Header";
+import Pagination from "@/components/Pagination";
+import RecentPosts from "@/components/RecentPosts";
+import { getAllPosts, getRecentPosts } from "@/lib/api";
+import { Metadata } from "next";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Next-Blog",
+  description: "Blog Viewer, built using Next.js.",
+};
+
+export default async function PostsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}) {
+  const { page: pageParam } = await searchParams;
+  const page = parseInt(pageParam || "1");
+  const limit = 6;
+
+  const { posts, total } = await getAllPosts(page, limit);
+  const { posts: recentPosts } = await getRecentPosts(4);
+
   return (
-    <div className="w-full h-[100vh] flex flex-col gap-4 justify-center items-center">
-      <h1 className="text-2xl font-bold">Welcome to Next-Blog!</h1>
-      <Link
-        href="./posts"
-        className="flex items-center gap-1 border-b border-transparent hover:border-black cursor-pointer transition-border duration-250"
-      >
-        View Posts <Icon icon="lucide:chevron-right" />
-      </Link>
+    <div className="dark:bg-[#090d1f] dark:text-white px-8">
+      <Header version="full" className="my-8" />
+      <main>
+        <RecentPosts articles={recentPosts} className="my-8" />
+        <AllPosts articles={posts} className="my-8" />
+        <Pagination
+          pages={Math.ceil((total - 4) / limit)}
+          currentPage={page}
+          className="my-8"
+        />
+      </main>
     </div>
   );
 }
