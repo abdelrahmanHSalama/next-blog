@@ -4,7 +4,7 @@ A blog viewer app built with **Next.js**, **TypeScript**, and **TailwindCSS** fo
 
 ## Features
 
-- **Posts List Page** (/posts): Displays a list of post titles with body excerpts, linked to individual post pages.
+- **Posts List Page** (/): Displays a list of post titles with body excerpts, linked to individual post pages.
 - **Post Detail Page** (/posts/[id]): Shows full post details with clean, readable formatting.
 
 ## Tech Stack
