@@ -54,13 +54,13 @@ export default function Pagination({
 
   const handlePrevious = () => {
     if (safeCurrentPage > 1) {
-      router.push(`/posts?page=${safeCurrentPage - 1}`);
+      router.push(`/?page=${safeCurrentPage - 1}`);
     }
   };
 
   const handleNext = () => {
     if (safeCurrentPage < pages) {
-      router.push(`/posts?page=${safeCurrentPage + 1}`);
+      router.push(`/?page=${safeCurrentPage + 1}`);
     }
   };
 
